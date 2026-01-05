@@ -1,0 +1,693 @@
+/* MATHERK - Modern Military Training App */
+/* Clean, minimal, professional design */
+
+:root {
+  --bg: #0c0c0c;
+  --bg-elevated: #161616;
+  --bg-card: #1a1a1a;
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.5);
+  --text-muted: rgba(255, 255, 255, 0.3);
+  --accent: #00ff88;
+  --accent-dim: rgba(0, 255, 136, 0.15);
+  --danger: #ff4444;
+  --danger-dim: rgba(255, 68, 68, 0.15);
+  --warning: #ffaa00;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app {
+  height: 100%;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Screens */
+.screen {
+  display: none;
+  flex: 1;
+  overflow: hidden;
+}
+
+.screen.active {
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ==================== LANDING SCREEN ==================== */
+
+#landing {
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  padding-bottom: env(safe-area-inset-bottom, 24px);
+}
+
+.landing-content {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+}
+
+.logo-section {
+  text-align: center;
+}
+
+.logo-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 24px;
+  color: var(--accent);
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+.logo-text {
+  font-size: 2.5rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  margin-bottom: 8px;
+}
+
+.logo-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* Start Form */
+.start-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 18px 20px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-size: 1rem;
+  font-family: inherit;
+  transition: var(--transition);
+}
+
+.input-group input::placeholder {
+  color: var(--text-muted);
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: var(--bg-card);
+}
+
+.start-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 18px 24px;
+  background: var(--accent);
+  border: none;
+  border-radius: var(--radius);
+  color: var(--bg);
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: inherit;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.start-button svg {
+  width: 20px;
+  height: 20px;
+}
+
+.start-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 255, 136, 0.3);
+}
+
+.start-button:active {
+  transform: translateY(0);
+}
+
+/* Info Badge */
+.info-badge {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 12px 20px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+}
+
+.info-count {
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--accent);
+}
+
+.info-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+/* ==================== QUIZ SCREEN ==================== */
+
+#quiz {
+  padding: 16px;
+  padding-top: env(safe-area-inset-top, 16px);
+  padding-bottom: env(safe-area-inset-bottom, 16px);
+  gap: 16px;
+}
+
+.quiz-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.progress-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.progress-bar {
+  width: 100px;
+  height: 4px;
+  background: var(--bg-elevated);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.progress-text span:first-child {
+  color: var(--text);
+}
+
+.score-container {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.score-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.score-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* Quiz Content */
+.quiz-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: hidden;
+}
+
+/* Question Card */
+.question-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.question-image {
+  flex: 1;
+  min-height: 200px;
+  position: relative;
+  background: var(--bg-elevated);
+  overflow: hidden;
+}
+
+.question-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.question-image img.loaded {
+  opacity: 1;
+}
+
+.image-loader {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-elevated);
+}
+
+.image-loader::after {
+  content: '';
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.question-image img.loaded + .image-loader {
+  display: none;
+}
+
+/* Options */
+.options-container {
+  padding: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.option-button {
+  padding: 16px 12px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.option-button:hover {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+}
+
+.option-button:active {
+  transform: scale(0.98);
+}
+
+.option-button.correct {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.option-button.incorrect {
+  background: var(--danger-dim);
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.option-button.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Timer */
+.timer-container {
+  flex-shrink: 0;
+}
+
+.timer-bar {
+  height: 4px;
+  background: var(--bg-elevated);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.timer-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: width 0.1s linear, background 0.3s ease;
+}
+
+.timer-fill.warning {
+  background: var(--warning);
+}
+
+.timer-fill.danger {
+  background: var(--danger);
+}
+
+/* ==================== RESULTS SCREEN ==================== */
+
+#results {
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  padding-bottom: env(safe-area-inset-bottom, 24px);
+}
+
+.results-content {
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.results-score {
+  margin-bottom: 32px;
+}
+
+.results-score .label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+
+.results-score .value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 5rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.results-score .unit {
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  margin-left: 4px;
+}
+
+.results-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.results-stats {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 40px;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.results-stats span {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.results-rank {
+  display: inline-block;
+  padding: 12px 32px;
+  background: var(--accent-dim);
+  border: 1px solid var(--accent);
+  border-radius: 100px;
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 40px;
+}
+
+.restart-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 32px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.restart-button:hover {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+}
+
+/* ==================== FEEDBACK MODAL ==================== */
+
+.feedback-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 100;
+  animation: fadeIn 0.2s ease;
+}
+
+.feedback-card {
+  width: 100%;
+  max-width: 320px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.feedback-card.correct {
+  border-color: var(--accent);
+}
+
+.feedback-card.incorrect {
+  border-color: var(--danger);
+}
+
+.feedback-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+.feedback-card.correct .feedback-icon {
+  background: var(--accent-dim);
+  color: var(--accent);
+}
+
+.feedback-card.incorrect .feedback-icon {
+  background: var(--danger-dim);
+  color: var(--danger);
+}
+
+.feedback-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.feedback-card.correct .feedback-title {
+  color: var(--accent);
+}
+
+.feedback-card.incorrect .feedback-title {
+  color: var(--danger);
+}
+
+.feedback-answer {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  margin-bottom: 24px;
+}
+
+.feedback-answer strong {
+  color: var(--text);
+}
+
+.feedback-points {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.feedback-card.correct .feedback-points {
+  color: var(--accent);
+}
+
+.feedback-card.incorrect .feedback-points {
+  color: var(--danger);
+}
+
+.next-button {
+  width: 100%;
+  padding: 14px 24px;
+  background: var(--accent);
+  border: none;
+  border-radius: var(--radius-sm);
+  color: var(--bg);
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.next-button:hover {
+  opacity: 0.9;
+}
+
+/* ==================== MOBILE OPTIMIZATIONS ==================== */
+
+@media (max-width: 480px) {
+  .logo-text {
+    font-size: 2rem;
+  }
+
+  .options-container {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .option-button {
+    padding: 18px 16px;
+    font-size: 1rem;
+  }
+
+  .results-score .value {
+    font-size: 4rem;
+  }
+}
+
+@media (max-height: 600px) {
+  .landing-content {
+    gap: 32px;
+  }
+
+  .logo-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 16px;
+  }
+
+  .logo-text {
+    font-size: 1.75rem;
+  }
+}
+
+/* Landscape */
+@media (orientation: landscape) and (max-height: 500px) {
+  #landing {
+    padding: 16px;
+  }
+
+  .landing-content {
+    flex-direction: row;
+    max-width: 600px;
+    gap: 48px;
+  }
+
+  .logo-section {
+    flex: 1;
+  }
+
+  .start-form {
+    flex: 1;
+  }
+
+  .info-badge {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .question-image {
+    min-height: 150px;
+  }
+
+  .options-container {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 12px;
+  }
+
+  .option-button {
+    padding: 12px 8px;
+    font-size: 0.85rem;
+  }
+}
