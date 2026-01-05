@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 180">
+  <defs>
+    <style>.ifv{fill:#1a1a1a;}</style>
+  </defs>
+  <!-- BMP-3 Silhouette - large flat turret, dual guns -->
+  <g class="ifv">
+    <!-- Hull with wave breaker -->
+    <polygon points="20,130 40,90 60,75 360,75 380,130"/>
+    <!-- Wave breaker -->
+    <polygon points="20,130 40,110 60,100 40,130"/>
+    <!-- Tracks -->
+    <ellipse cx="65" cy="145" rx="38" ry="18"/>
+    <ellipse cx="345" cy="145" rx="38" ry="18"/>
+    <rect x="65" y="127" width="280" height="36" rx="4"/>
+    <!-- Large flat turret -->
+    <ellipse cx="170" cy="55" rx="55" ry="28"/>
+    <!-- Dual gun system - 100mm + 30mm -->
+    <rect x="220" y="45" width="110" height="12" rx="2"/>
+    <rect x="220" y="58" width="95" height="6" rx="1"/>
+    <!-- Commander's sight -->
+    <rect x="130" y="32" width="18" height="15"/>
+  </g>
+</svg>

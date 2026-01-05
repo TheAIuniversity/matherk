@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 180">
+  <defs>
+    <style>.ifv{fill:#1a1a1a;}</style>
+  </defs>
+  <!-- BMP-2 Silhouette - taller turret with 30mm -->
+  <g class="ifv">
+    <!-- Hull -->
+    <polygon points="30,130 80,75 355,75 375,130"/>
+    <!-- Tracks -->
+    <ellipse cx="60" cy="145" rx="35" ry="18"/>
+    <ellipse cx="345" cy="145" rx="35" ry="18"/>
+    <rect x="60" y="127" width="285" height="36" rx="4"/>
+    <!-- Two-man turret - larger -->
+    <ellipse cx="150" cy="55" rx="40" ry="25"/>
+    <!-- Long 30mm autocannon -->
+    <rect x="185" y="48" width="100" height="8" rx="1"/>
+    <!-- ATGM launcher on side -->
+    <rect x="180" y="35" width="35" height="10" rx="2"/>
+    <!-- Commander's sight -->
+    <rect x="125" y="35" width="15" height="12"/>
+  </g>
+</svg>

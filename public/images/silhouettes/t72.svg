@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
+  <defs>
+    <style>.tank{fill:#1a1a1a;}</style>
+  </defs>
+  <!-- T-72 Silhouette -->
+  <g class="tank">
+    <!-- Hull -->
+    <path d="M50,140 L60,100 L340,100 L350,140 L50,140 Z"/>
+    <!-- Tracks -->
+    <ellipse cx="80" cy="155" rx="35" ry="20"/>
+    <ellipse cx="320" cy="155" rx="35" ry="20"/>
+    <rect x="80" y="135" width="240" height="40" rx="5"/>
+    <!-- Turret -->
+    <ellipse cx="180" cy="85" rx="70" ry="35"/>
+    <!-- Gun -->
+    <rect x="240" y="78" width="140" height="14" rx="2"/>
+    <!-- Commander hatch -->
+    <ellipse cx="210" cy="70" rx="15" ry="10"/>
+    <!-- ERA blocks indication -->
+    <rect x="65" y="102" width="8" height="8"/>
+    <rect x="78" y="102" width="8" height="8"/>
+    <rect x="91" y="102" width="8" height="8"/>
+  </g>
+</svg>

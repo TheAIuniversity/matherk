@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 170">
+  <defs>
+    <style>.airborne{fill:#1a1a1a;}</style>
+  </defs>
+  <!-- BMD-4M Silhouette - BMP-3 turret on compact hull, 6 road wheels -->
+  <g class="airborne">
+    <!-- Hull -->
+    <polygon points="25,120 55,75 325,75 355,120"/>
+    <!-- Tracks -->
+    <ellipse cx="55" cy="135" rx="32" ry="16"/>
+    <ellipse cx="325" cy="135" rx="32" ry="16"/>
+    <rect x="55" y="119" width="270" height="32" rx="3"/>
+    <!-- 6 Road wheels -->
+    <circle cx="70" cy="135" r="7"/>
+    <circle cx="115" cy="135" r="7"/>
+    <circle cx="160" cy="135" r="7"/>
+    <circle cx="205" cy="135" r="7"/>
+    <circle cx="250" cy="135" r="7"/>
+    <circle cx="310" cy="135" r="7"/>
+    <!-- BMP-3 style Bakhcha-U turret -->
+    <ellipse cx="160" cy="55" rx="50" ry="25"/>
+    <!-- Dual guns 100mm + 30mm -->
+    <rect x="205" y="47" width="100" height="10" rx="2"/>
+    <rect x="205" y="58" width="85" height="5" rx="1"/>
+    <!-- Commander sight -->
+    <rect x="125" y="35" width="15" height="12"/>
+  </g>
+</svg>

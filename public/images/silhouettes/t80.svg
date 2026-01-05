@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
+  <defs>
+    <style>.tank{fill:#1a1a1a;}</style>
+  </defs>
+  <!-- T-80 Silhouette - slightly taller turret -->
+  <g class="tank">
+    <!-- Hull -->
+    <path d="M50,145 L55,105 L345,105 L350,145 L50,145 Z"/>
+    <!-- Tracks -->
+    <ellipse cx="75" cy="160" rx="32" ry="18"/>
+    <ellipse cx="325" cy="160" rx="32" ry="18"/>
+    <rect x="75" y="142" width="250" height="36" rx="5"/>
+    <!-- Turret - taller -->
+    <ellipse cx="175" cy="82" rx="65" ry="38"/>
+    <!-- Gun -->
+    <rect x="230" y="74" width="145" height="16" rx="2"/>
+    <!-- Turbine exhaust -->
+    <rect x="300" y="108" width="40" height="25" rx="3"/>
+    <!-- ERA blocks - larger -->
+    <rect x="60" y="107" width="12" height="12"/>
+    <rect x="77" y="107" width="12" height="12"/>
+    <rect x="94" y="107" width="12" height="12"/>
+  </g>
+</svg>
