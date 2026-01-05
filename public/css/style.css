@@ -765,52 +765,455 @@ body {
   color: var(--success);
 }
 
-/* Mobile Responsive */
-@media (max-width: 768px) {
+/* ========================================
+   MOBILE-FIRST RESPONSIVE DESIGN
+   Optimized for phone usage in the field
+   ======================================== */
+
+/* Touch-friendly tap targets (minimum 44px) */
+.btn, .option-btn, .difficulty-btn, .next-btn {
+  min-height: 48px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+/* Prevent zoom on input focus (iOS) */
+input, select, textarea {
+  font-size: 16px !important;
+}
+
+/* Safe area for notched phones */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .app-container {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* PHONE PORTRAIT (default - up to 480px) */
+@media (max-width: 480px) {
+  .app-container {
+    padding: 10px;
+    padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .app-header {
+    padding: 15px 0 20px;
+    margin-bottom: 15px;
+  }
+
+  .logo {
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+  }
+
+  .subtitle {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+  }
+
+  /* Start Screen - Compact */
+  .start-card {
+    padding: 20px 15px;
+    border-radius: 10px;
+  }
+
+  .start-card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .form-group input {
+    padding: 16px 14px;
+    font-size: 16px;
+    border-radius: 8px;
+  }
+
+  .difficulty-buttons {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .difficulty-btn {
+    padding: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .difficulty-btn .label {
+    font-size: 1rem;
+  }
+
+  .btn.start-btn {
+    padding: 18px;
+    font-size: 1.1rem;
+    margin-top: 15px;
+  }
+
+  .info-section {
+    padding: 15px !important;
+    margin: 20px auto !important;
+  }
+
+  .info-section h3 {
+    font-size: 0.85rem !important;
+  }
+
+  .info-section > div {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+
+  /* Quiz Screen - Full width usage */
+  .quiz-header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 12px 15px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+  }
+
+  .progress-info {
+    font-size: 0.95rem;
+  }
+
+  .score-info {
+    font-size: 1.1rem;
+  }
+
+  .question-container {
+    padding: 15px;
+    border-radius: 10px;
+  }
+
+  .question-title {
+    font-size: 1rem;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+  }
+
+  .question-subtitle {
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+  }
+
+  /* Image takes full width on mobile */
+  .image-container {
+    margin: 0 -15px 15px;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    max-width: calc(100% + 30px);
+  }
+
+  .vehicle-target {
+    border-radius: 0;
+    margin: 0 -15px;
+    width: calc(100% + 30px);
+  }
+
+  .timer-bar {
+    height: 8px;
+    margin: 15px 0;
+    border-radius: 4px;
+  }
+
+  /* Options - Stack vertically, large touch targets */
+  .options-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 15px;
+  }
+
+  .option-btn {
+    padding: 18px 15px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    min-height: 70px;
+  }
+
+  .option-btn .option-name {
+    font-size: 1.15rem;
+  }
+
+  .option-btn .option-type {
+    font-size: 0.8rem;
+  }
+
+  /* Vehicle info badges */
+  .vehicle-info {
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .info-badge {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+  }
+
+  /* Feedback overlay - Full screen feel */
+  .feedback-content {
+    padding: 30px 20px;
+    margin: 15px;
+    width: calc(100% - 30px);
+    max-width: none;
+    border-radius: 15px;
+  }
+
+  .feedback-icon {
+    font-size: 3rem;
+  }
+
+  .feedback-title {
+    font-size: 1.5rem;
+  }
+
+  .feedback-points {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+
+  .feedback-details {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+
+  .weak-point-info {
+    font-size: 0.8rem;
+    padding: 8px;
+  }
+
+  .next-btn {
+    padding: 16px 30px;
+    font-size: 1rem;
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  /* Results screen */
+  .results-card {
+    padding: 25px 15px;
+    border-radius: 10px;
+  }
+
+  .results-card h2 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+  }
+
+  .participant-info .name {
+    font-size: 1.3rem;
+  }
+
+  .score-display {
+    margin: 20px 0;
+  }
+
+  .final-score {
+    font-size: 4rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 20px 0;
+  }
+
+  .stat-item {
+    padding: 15px 10px;
+  }
+
+  .stat-value {
+    font-size: 1.3rem;
+  }
+
+  .stat-label {
+    font-size: 0.7rem;
+  }
+
+  .rank-badge {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    margin: 15px 0 20px;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .action-buttons .btn {
+    min-width: 100%;
+    padding: 16px;
+  }
+
+  /* Leaderboard */
+  .leaderboard-card {
+    padding: 15px;
+    border-radius: 10px;
+  }
+
+  .leaderboard-card h2 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+
+  .leaderboard-table {
+    font-size: 0.8rem;
+  }
+
+  .leaderboard-table th,
+  .leaderboard-table td {
+    padding: 10px 6px;
+  }
+
+  /* Hide less important columns on very small screens */
+  .leaderboard-table .unit {
+    display: none;
+  }
+}
+
+/* PHONE LANDSCAPE & SMALL TABLETS (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
   .app-container {
     padding: 15px;
   }
 
   .logo {
-    font-size: 2rem;
-    letter-spacing: 4px;
+    font-size: 2.2rem;
+    letter-spacing: 5px;
   }
 
   .start-card,
   .results-card,
   .question-container {
-    padding: 20px;
-  }
-
-  .quiz-header {
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
+    padding: 25px;
   }
 
   .difficulty-buttons {
-    flex-direction: column;
+    flex-direction: row;
+  }
+
+  .options-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .option-btn {
+    padding: 16px;
+  }
+
+  .quiz-header {
+    flex-direction: row;
   }
 
   .stats-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+
+  .stat-item {
+    padding: 12px;
   }
 
   .final-score {
-    font-size: 3.5rem;
+    font-size: 4.5rem;
   }
 
   .action-buttons {
-    flex-direction: column;
+    flex-direction: row;
+  }
+}
+
+/* TABLET & DESKTOP (769px+) */
+@media (min-width: 769px) {
+  .app-container {
+    padding: 20px;
   }
 
-  .leaderboard-table {
-    font-size: 0.85rem;
+  .logo {
+    font-size: 3rem;
   }
 
-  .leaderboard-table th,
-  .leaderboard-table td {
-    padding: 8px;
+  .question-container {
+    padding: 30px;
+  }
+
+  .options-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .option-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Landscape mode optimizations */
+@media (max-height: 500px) and (orientation: landscape) {
+  .app-header {
+    padding: 10px 0;
+    margin-bottom: 10px;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    display: none;
+  }
+
+  .question-container {
+    padding: 10px;
+  }
+
+  .question-title {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+  }
+
+  .image-container,
+  .vehicle-target {
+    max-height: 40vh;
+  }
+
+  .vehicle-image,
+  .target-image {
+    max-height: 40vh;
+    width: auto;
+    margin: 0 auto;
+  }
+
+  .options-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+
+  .option-btn {
+    padding: 10px;
+    min-height: 50px;
+  }
+
+  .option-btn .option-name {
+    font-size: 0.9rem;
+  }
+
+  .feedback-content {
+    padding: 20px;
+    max-height: 90vh;
+    overflow-y: auto;
   }
 }
 
